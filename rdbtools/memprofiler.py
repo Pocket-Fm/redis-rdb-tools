@@ -383,7 +383,8 @@ class MemoryCallback(RdbCallback):
         elif 'encoding' in info and info['encoding'] == 'skiplist':
             size += self.skiplist_overhead(length)
         else:
-            raise Exception('start_sorted_set', 'Could not find encoding or sizeof_value in info object %s' % info)
+            size = 0
+            # raise Exception('start_sorted_set', 'Could not find encoding or sizeof_value in info object %s' % info)
         self._current_size = size
     
     def zadd(self, key, score, member):
